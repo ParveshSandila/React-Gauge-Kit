@@ -1,5 +1,7 @@
 # 🚀 React Gauge Kit
 
+![React Gauge Kit Showcase](./screenshot.png)
+
 A premium, high-performance collection of reusable React gauge components built with **SVG**, **Framer Motion**, and **Tailwind CSS**. Designed for modern dashboards and data visualization.
 
 ![React Gauge Preview](https://img.shields.io/badge/React-18-blue)
