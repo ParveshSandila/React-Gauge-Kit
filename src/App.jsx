@@ -4,6 +4,9 @@ import LinearGauge from './components/gauges/LinearGauge'
 import SpeedometerGauge from './components/gauges/SpeedometerGauge'
 import RadialGauge from './components/gauges/RadialGauge'
 import ProgressGauge from './components/gauges/ProgressGauge'
+import CarSpeedometer from './components/gauges/CarSpeedometer'
+import PumpMeterGauge from './components/gauges/PumpMeterGauge'
+import TemperatureGauge from './components/gauges/TemperatureGauge'
 
 function App() {
     const [value, setValue] = useState(65)
@@ -71,6 +74,24 @@ function App() {
                         <ProgressGauge value={Math.min(value + 20, 100)} label="Download" color="#84cc16" size={100} />
                         <ProgressGauge value={Math.max(value - 20, 0)} label="Upload" color="#f43f5e" size={100} />
                     </div>
+                </section>
+
+                {/* New Car Speedometer */}
+                <section className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-3xl border border-slate-700/50 flex flex-col items-center hover:border-rose-500/50 transition-colors group lg:col-span-2">
+                    <h2 className="text-2xl font-black mb-4 text-slate-200 group-hover:text-rose-400 transition-colors tracking-widest uppercase italic">Sport Cluster</h2>
+                    <CarSpeedometer value={value ? value * 2.6 : 0} label="TURBO MODE" unit="KM/H" size={400} />
+                </section>
+
+                {/* Industrial Pump Gauge */}
+                <section className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-3xl border border-slate-700/50 flex flex-col items-center hover:border-cyan-500/50 transition-colors group">
+                    <h2 className="text-xl font-bold mb-8 text-slate-200 group-hover:text-cyan-400 transition-colors">Pressure Gauge</h2>
+                    <PumpMeterGauge value={value} label="SYSTEM STATUS" />
+                </section>
+
+                {/* Temperature Gauge */}
+                <section className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-3xl border border-slate-700/50 flex flex-col items-center hover:border-orange-500/50 transition-colors group">
+                    <h2 className="text-xl font-bold mb-8 text-slate-200 group-hover:text-orange-400 transition-colors">Core Temperature</h2>
+                    <TemperatureGauge value={(value / 100) * 100 - 20} min={-20} max={80} />
                 </section>
 
                 {/* Info Card */}
